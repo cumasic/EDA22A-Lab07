@@ -45,6 +45,18 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
 		}
     }
     public T get(E key) throws NullPointerException{
+        Node<E,T> aux = this.first;
+		while(aux != null && !aux.getKey().equals(key)) {
+			aux = aux.getNext();
+		}
+		if(aux != null ) {
+			if(aux.getValue().equals(null))
+				throw new NullPointerException("No existe valor en la clave");
+			else
+				return aux.getValue();
+		}
+		else 
+			throw new NullPointerException("No existe dicha clave");
     }
     public T put(E key, T value){
     }
