@@ -14,6 +14,7 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
     	return tamaño;
     }
     public boolean isEmpty() {
+        return this.first == null;
     }
     public boolean containsKey(E key){
     }
