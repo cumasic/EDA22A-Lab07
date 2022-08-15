@@ -17,6 +17,17 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
         return this.first == null;
     }
     public boolean containsKey(E key){
+        Node<E,T> aux = this.first;
+		if(aux.getKey() == key)
+			return true;
+		else {
+			while(aux.getNext() != null && aux.getKey()!=key) {
+				aux = aux.getNext();
+			}
+			if(aux.getKey()==key)
+				return true;
+			else
+				return false;
     }
     public boolean containsValue(T value){
     }
