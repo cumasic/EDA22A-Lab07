@@ -109,6 +109,7 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
 			throw new NullPointerException("La tabla esta vacía");
     }
     public void clear() {
+        this.first = null;
     }
     public int hashCode() {
     }
