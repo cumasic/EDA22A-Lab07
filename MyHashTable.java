@@ -112,6 +112,13 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
         this.first = null;
     }
     public int hashCode() {
+        Node<E,T> aux = this.first;
+    	int codigo = 0;
+    	while(aux != null) { 
+    		codigo += (int)aux.getKey();
+    		aux = aux.getNext();
+    	}
+    	return codigo;
     }
     public String toString() {
     }
