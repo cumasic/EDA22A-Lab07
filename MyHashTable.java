@@ -121,5 +121,13 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
     	return codigo;
     }
     public String toString() {
+        Node<E,T> aux = this.first;
+    	String tabla="[ ";
+		while(aux != null) {
+			tabla += aux.getKey() + " = " + aux.getValue()+", ";
+			aux = aux.getNext();
+		}
+		tabla += "]";
+		return tabla;
     }
 }
