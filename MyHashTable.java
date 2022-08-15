@@ -5,6 +5,13 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
 		this.first = null;
 	}
     public int size() {
+        Node<E,T> aux = this.first;
+    	int tamaño=0;
+    	if(isEmpty())
+    		return tamaño;
+    	for(tamaño=1 ; aux.getNext() != null;tamaño++) 
+    		aux = aux.getNext();
+    	return tamaño;
     }
     public boolean isEmpty() {
     }
