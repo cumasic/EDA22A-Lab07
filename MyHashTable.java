@@ -30,6 +30,19 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
 				return false;
     }
     public boolean containsValue(T value){
+        Node<E,T> aux = this.first;
+		if(aux.getValue() == value) {
+			return true;
+		}
+		else {
+			while(aux.getNext() != null && aux.getNext().getValue() != value) {
+				aux = aux.getNext();
+			}
+			if(aux.getValue() == value)
+				return true;
+			else
+				return false;
+		}
     }
     public T get(E key) throws NullPointerException{
     }
