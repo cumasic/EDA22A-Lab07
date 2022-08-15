@@ -28,6 +28,7 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
 				return true;
 			else
 				return false;
+		}
     }
     public boolean containsValue(T value){
         Node<E,T> aux = this.first;
