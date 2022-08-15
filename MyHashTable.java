@@ -82,7 +82,31 @@ public class MyHashTable<E,T> implements HashTable<E,T> {
 			return null;
 		}
     }
-    public T remove(E key) {
+    public T remove(E key) throws NullPointerException{
+        Node<E,T> aux = this.first;
+		if(!isEmpty()) {
+			if(aux.getKey().equals(key)) {
+				T valorAntiguo = aux.getValue();
+				aux.setKey(aux.getNext().getKey());
+				aux.setValue(aux.getNext().getValue());
+				aux.setNext(aux.getNext().getNext());
+				return valorAntiguo;
+			}
+			else {
+				while(aux.getNext() != null && !aux.getNext().getKey().equals(key)) {
+					aux = aux.getNext();
+				}
+				if(aux.getNext() != null) {
+					T valorAntiguo = aux.getNext().getValue();
+					aux.setNext(aux.getNext().getNext());
+					return valorAntiguo;
+				}
+				else
+					throw new NullPointerException("No existe dicha clave");
+			}
+		}
+		else
+			throw new NullPointerException("La tabla esta vacía");
     }
     public void clear() {
     }
